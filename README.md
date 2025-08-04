@@ -1,1 +1,3 @@
-[![Download from Google Drive](https://img.shields.io/badge/Google%20Drive-Download-4285F4?style=for-the-badge&logo=googledrive)](여기에-구글-드라이브-링크-붙여넣기)
+download model parameter
+
+- [parameter](https://drive.google.com/drive/folders/1O-x-vBUHQrM9aGN82uVKF0I194Robl6D?usp=sharing)
