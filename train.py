@@ -34,7 +34,9 @@ import wandb  # Weights & Biases 로깅
 from physicsnemo import Module
 from physicsnemo.models.diffusion import UNet, EDMPrecondSuperResolution
 from physicsnemo.distributed import DistributedManager
-from physicsnemo.metrics.diffusion import RegressionLoss, ResidualLoss, RegressionLossCE
+# from physicsnemo.metrics.diffusion import RegressionLoss, ResidualLoss, RegressionLossCE
+#! Instead of physicsnemo metrics loss_fc, using custom loss_fc
+from loss import RegressionLoss, ResidualLoss, RegressionLossCE  # 사용자 정의 손실 함수
 from physicsnemo.utils.patching import RandomPatching2D
 from physicsnemo.launch.logging.wandb import initialize_wandb
 from physicsnemo.launch.logging import PythonLogger, RankZeroLoggingWrapper
@@ -734,7 +736,7 @@ def main(cfg: DictConfig) -> None:
                                         "img_clean": img_clean_valid,
                                         "img_lr": img_lr_valid,
                                         "augment_pipe": None,
-                                        "use_patch_grad_acc": use_patch_grad_acc,
+                                        "use_patch_grad_acc": use_patch_grad_acc,   # Regression에서는 그냥 버려지는 인자
                                     }
                                     if use_patch_grad_acc is not None:
                                         loss_valid_kwargs[
