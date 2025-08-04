@@ -2,6 +2,8 @@
 *.log
 *.yaml
 *.yml
+*.pyc
 output/
 wandb/
 tensorboard/
+__pycache__/

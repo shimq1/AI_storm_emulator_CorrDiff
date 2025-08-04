@@ -1,4 +1,0 @@
-[17:09:14 - generate - INFO] [94mUsing dataset: /scratch/x3108a06/corrdiff/datasets/dataset_2D.py::Dataset_2D[0m
-[17:09:14 - generate - INFO] [94mPatch-based training disabled[0m
-[17:09:14 - generate - INFO] [94mLoading network from "/scratch/x3108a06/checkpoints_regression/UNet.0.10000000.mdlus"...[0m
-[17:10:05 - generate - INFO] [94mGenerating images, saving results to corrdiff_output.nc...[0m
