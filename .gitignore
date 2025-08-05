@@ -3,9 +3,11 @@
 *.yaml
 *.yml
 *.pt
+*.pyc
 output/
 wandb/
-# conf/
+conf/
 tensorboard/
 checkpoints_regression/
+__pycache__/
 
