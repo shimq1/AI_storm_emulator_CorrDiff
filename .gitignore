@@ -7,7 +7,7 @@
 **/*.mdlus
 **/output/
 **/wandb/
-**/conf/
+# **/conf/
 **/tensorboard/
 **/checkpoints_regression/
 **/__pycache__/
