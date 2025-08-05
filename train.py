@@ -34,7 +34,8 @@ import wandb  # Weights & Biases 로깅
 from physicsnemo import Module
 from physicsnemo.models.diffusion import UNet, EDMPrecondSuperResolution
 from physicsnemo.distributed import DistributedManager
-from physicsnemo.metrics.diffusion import RegressionLoss, ResidualLoss, RegressionLossCE
+# from physicsnemo.metrics.diffusion import RegressionLoss, ResidualLoss, RegressionLossCE
+from loss import ResidualLoss, RegressionLoss, RegressionLossCE
 from physicsnemo.utils.patching import RandomPatching2D
 from physicsnemo.launch.logging.wandb import initialize_wandb
 from physicsnemo.launch.logging import PythonLogger, RankZeroLoggingWrapper
@@ -494,7 +495,7 @@ def main(cfg: DictConfig) -> None:
         pass
 
     ############################################################################
-    #                            메인 학습 루프                            #
+    #                            메인 학습 루프                                  #
     ############################################################################
 
     logger0.info(f"총 {cfg.training.hp.training_duration}개의 이미지에 대해 학습을 시작합니다...")

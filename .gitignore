@@ -2,7 +2,10 @@
 *.log
 *.yaml
 *.yml
+*.pt
 output/
 wandb/
 conf/
 tensorboard/
+checkpoints_regression/
+
