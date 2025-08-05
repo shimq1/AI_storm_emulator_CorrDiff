@@ -11,4 +11,5 @@
 **/tensorboard/
 **/checkpoints_regression/
 **/__pycache__/
+**/.cache/
 
