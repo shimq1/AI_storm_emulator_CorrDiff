@@ -74,10 +74,11 @@ dataset:
     invariant_variables: null
     # Names or indices of invariant channels. Optional.
 
-# # Validation dataset configuration (optional)
-# validation:
-#   data_path: /scratch/x3108a06/input_data/2D/valid/PW_pad_1m  # Override training data path
-#   # All other parameters not specified here are inherited from the dataset section
+# Validation dataset configuration (optional)
+validation:
+    type: /scratch/x3108a06/corrdiff/datasets/dataset_2D.py::Dataset_2D
+    data_path: /scratch/x3108a06/input_data/2D/valid/PW_pad_1m  # Override training data path
+    # All other parameters not specified here are inherited from the dataset section
 
 # Training parameters
 training:
