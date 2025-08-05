@@ -1,13 +1,14 @@
 # 로그, yaml 등 결과/임시 파일 무시
-*.log
-*.yaml
-*.yml
-*.pt
-*.pyc
-output/
-wandb/
-conf/
-tensorboard/
-checkpoints_regression/
-__pycache__/
+**/*.log
+**/*.yaml
+**/*.yml
+**/*.pt
+**/*.pyc
+**/*.mdlus
+**/output/
+**/wandb/
+**/conf/
+**/tensorboard/
+**/checkpoints_regression/
+**/__pycache__/
 
