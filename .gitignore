@@ -2,11 +2,6 @@
 *.log
 *.yaml
 *.yml
-*.pyc
-*.pt
 output/
 wandb/
 tensorboard/
-__pycache__/
-checkpoints_regression/
-checkpoints_residual/
