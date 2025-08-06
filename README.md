@@ -7,7 +7,7 @@
 # Validation loss of models
 
 ## U-Net
-  <img width="1243" height="414" alt="image" src="https://github.com/user-attachments/assets/3bcec27f-8fd8-4e45-854f-453fafc3bd14" />
+  <img width="1277" height="593" alt="그림1" src="https://github.com/user-attachments/assets/0862f071-ff25-4452-85cb-d92384bfb7e4" />
  Around 200,000 Validation loss saturated
 
 ## Diffusion
