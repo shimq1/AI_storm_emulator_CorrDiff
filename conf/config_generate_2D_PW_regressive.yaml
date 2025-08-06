@@ -78,13 +78,13 @@ generation:
     # List[str], time stamps in ISO 8601 format. Replace and list desired target
     # time stamps.
     io:
-        res_ckpt_filename: /scratch/x3108a06/checkpoints_diffusion/EDMPrecondSuperResolution.0.7430016.mdlus
+        res_ckpt_filename: null
         # Path to checkpoint file for the diffusion model  
-        reg_ckpt_filename: /scratch/x3108a06/checkpoints_regression/UNet.0.10000000.mdlus
+        reg_ckpt_filename: /scratch/x3108a06/checkpoints_regression/UNet.0.200000.mdlus
         # Path to checkpoint filename for the mean predictor model
         output_filename: /scratch/x3108a06/generate_output/corrdiff_autoregressive_output.nc
 
-    inference_mode: "all"
+    inference_mode: "regression"
     # regression , diffusion , all
     hr_mean_conditioning: true
     autoregressive:

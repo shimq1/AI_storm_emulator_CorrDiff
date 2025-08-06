@@ -1,4 +1,15 @@
-[17:09:14 - generate - INFO] [94mUsing dataset: /scratch/x3108a06/corrdiff/datasets/dataset_2D.py::Dataset_2D[0m
-[17:09:14 - generate - INFO] [94mPatch-based training disabled[0m
-[17:09:14 - generate - INFO] [94mLoading network from "/scratch/x3108a06/checkpoints_regression/UNet.0.10000000.mdlus"...[0m
-[17:10:05 - generate - INFO] [94mGenerating images, saving results to corrdiff_output.nc...[0m
+[17:51:44 - generate - INFO] [94mAutoregressive mode enabled. Using only the first timestep as initial input.[0m
+[17:51:44 - generate - INFO] [94mUsing dataset: /scratch/x3108a06/corrdiff/datasets/dataset_2D.py::Dataset_2D[0m
+[17:51:45 - generate - INFO] [94mPatch-based training disabled[0m
+[17:51:45 - generate - INFO] [94mLoading network from "/scratch/x3108a06/checkpoints_regression/UNet.0.200000.mdlus"...[0m
+[17:52:07 - generate - INFO] [94mStarting autoregressive forecast for 6 steps.[0m
+[17:52:07 - generate - INFO] [94mLoading ground truth data for all forecast steps...[0m
+[17:52:08 - generate - INFO] [94mLoaded 6 ground truth steps.[0m
+[17:52:08 - generate - INFO] [94m  - Autoregressive step 1/6...[0m
+[17:52:18 - generate - INFO] [94m  - Autoregressive step 2/6...[0m
+[17:52:18 - generate - INFO] [94m  - Autoregressive step 3/6...[0m
+[17:52:18 - generate - INFO] [94m  - Autoregressive step 4/6...[0m
+[17:52:18 - generate - INFO] [94m  - Autoregressive step 5/6...[0m
+[17:52:18 - generate - INFO] [94m  - Autoregressive step 6/6...[0m
+[17:52:18 - generate - INFO] [94mAutoregressive forecast finished. Saving results to /scratch/x3108a06/generate_output/corrdiff_autoregressive_output.nc...[0m
+[17:52:18 - generate - INFO] [94mGeneration Completed.[0m
