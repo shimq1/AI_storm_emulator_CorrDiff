@@ -232,6 +232,7 @@ def main(cfg: DictConfig) -> None:
         output_path = getattr(cfg.generation.io, "output_filename", "corrdiff_output.nc")
         logger0.info(f"Generating images, saving results to {output_path}...")
 
+        # DataLoader according to designated times array
         data_loader = torch.utils.data.DataLoader(dataset=dataset, sampler=sampler, batch_size=1, pin_memory=True)
         time_index = -1
 
@@ -273,12 +274,12 @@ def main(cfg: DictConfig) -> None:
 
             # --- 7b. 연쇄 예측 수행 ---
             # 초기 입력 데이터 로드 (t=0)
-            data_loader = torch.utils.data.DataLoader(dataset=dataset, sampler=sampler, batch_size=1, pin_memory=True)
-            try:
-                _, initial_lr, *initial_lead_time = next(iter(data_loader))
-            except StopIteration:
-                logger0.error("Dataset is empty. Cannot get initial state for autoregressive forecast.")
-                return
+            # data_loader = torch.utils.data.DataLoader(dataset=dataset, sampler=sampler, batch_size=1, pin_memory=True)
+            # try:
+            #     _, initial_lr, *initial_lead_time = next(iter(data_loader))
+            # except StopIteration:
+            #     logger0.error("Dataset is empty. Cannot get initial state for autoregressive forecast.")
+            #     return
 
             current_lr = initial_lr
             

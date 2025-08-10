@@ -45,24 +45,24 @@ defaults:
 # Modify or add below parameters that should be passed as argument to the
 # user-defined dataset class.
 dataset:
-    type: /scratch/x3108a06/corrdiff/datasets/dataset_2D.py::Dataset_2D
+    type: /data03/SAM/AI_storm_emulator_CorrDiff/datasets/dataset_2D.py::Dataset_2D
     # Path to the user-defined dataset class. The user-defined dataset class is
     # automatically loaded from the path. The user-defined class "DatasetClass"
     # must be defined in the path "path/to/dataset.py".
-    data_path: /scratch/x3108a06/input_data/2D/test/PW_pad_1m
+    data_path: /data03/SAM/input_data/2D/test/W_pad_1m
     # Path to .nc data file
-    stats_path: /scratch/x3108a06/input_data/2D/PW_mean_std.json
+    stats_path: /data03/SAM/input_data/2D/W_pad_1m/W_mean_std.json
     # Path to json stats file
-    input_variables: ["PW"]
+    input_variables: ["W"]
     # Names or indices of input channels
-    output_variables: ["PW"]
+    output_variables: ["W"]
     # Names or indices of output channels
     invariant_variables: null
     # Names or indices of invariant channels. Optional.
 
 # Generation parameters to specialize
 generation:
-    num_ensembles: 10
+    num_ensembles: 2
     # int, number of ensembles to generate per input
     seed_batch_size: 1
     # int, size of the batched inference
@@ -70,26 +70,37 @@ generation:
     patch_shape_y: 448
     # int, patch size. Only used for `generation: patched`. For custom dataset,
     # this should be determined based on an autocorrelation plot.
-    times:
-        # - YYYY-MM-DDThh:mm:ss # Replace with target value
-        # - "2000-01-10T00:00:00"
-        - "2000-01-10T00:00:00"
+    # times:
+    #     # - YYYY-MM-DDThh:mm:ss # Replace with target value
+    #     # - "2000-01-10T00:00:00"
+    #     - "2000-01-01T00:00:00"
+    #     - "2000-01-01T00:01:00"
+    #     - "30"
+
+    times_range: 
+        # Start time (YYYY-MM-DDThh:mm:ss)
+        - "2000-01-01T00:00:00"
+        # End time (YYYY-MM-DDThh:mm:ss)
+        - "2000-01-01T01:00:00"
+        # Interval in minutes (int)
+        - 30
 
     # List[str], time stamps in ISO 8601 format. Replace and list desired target
     # time stamps.
     io:
-        res_ckpt_filename: /scratch/x3108a06/checkpoints_diffusion/EDMPrecondSuperResolution.0.7430016.mdlus
-        # Path to checkpoint file for the diffusion model  
-        reg_ckpt_filename: /scratch/x3108a06/checkpoints_regression/UNet.0.10000000.mdlus
+        res_ckpt_filename: /data03/SAM/AI_storm_emulator_CorrDiff/checkpoints_diffusion/EDMPrecondSuperResolution.0.160000.mdlus
+        # Path to checkpoint file for the diffusion model
+        reg_ckpt_filename: /data03/SAM/AI_storm_emulator_CorrDiff/checkpoints_regression/UNet.0.200000.mdlus
         # Path to checkpoint filename for the mean predictor model
-        output_filename: /scratch/x3108a06/generate_output/corrdiff_autoregressive_output.nc
+        output_filename: /data03/SAM/AI_storm_emulator_CorrDiff/generate_output/corrdiff_autoregressive_output.nc
 
     inference_mode: "all"
     # regression , diffusion , all
     hr_mean_conditioning: true
     autoregressive:
         enabled: true
-        num_steps: 6
+        num_auto_steps: 6           # How many autoregression would go on
+        out2input: "diffusion"      # Which output to use as input for the next step (Default: ENS_mean = Diffusion ens mean, regression = U-Net, diffusion = Diffusion 1st member)
 
 
 # Parameters for wandb logging
