@@ -125,7 +125,7 @@ def main(cfg: DictConfig) -> None:
 
     # 로거를 초기화합니다.
     if dist.rank == 0:  # 랭크 0 프로세스에서만 TensorBoard writer를 생성합니다.
-        writer = SummaryWriter(log_dir="tensorboard")
+        writer = SummaryWriter(log_dir=f"tensorboard/{HydraConfig.get().job.name}/{time.strftime('%m.%d_%H.%M', time.localtime())}")
     logger = PythonLogger("main")  # 일반 파이썬 로거
     logger0 = RankZeroLoggingWrapper(logger, dist)  # 랭크 0에서만 로그를 출력하는 래퍼
     
@@ -381,8 +381,13 @@ def main(cfg: DictConfig) -> None:
             raise FileNotFoundError(
                 f"회귀 모델 체크포인트를 찾을 수 없습니다: {regression_checkpoint_path}"
             )
+        
+        logger0.info(f"회귀 모델 체크포인트 경로: {regression_checkpoint_path}")
+        logger0.info(f"use_apex_gn: {use_apex_gn}, enable_amp: {enable_amp}, profile_mode: {profile_mode}")
         regression_net = Module.from_checkpoint(
-            regression_checkpoint_path, override_args={"use_apex_gn": use_apex_gn}
+            regression_checkpoint_path
+            #! If override_args activate, model malfunction occurs.
+            # , override_args={"use_apex_gn": use_apex_gn}
         )
         regression_net.amp_mode = enable_amp
         regression_net.profile_mode = profile_mode
