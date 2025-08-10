@@ -91,10 +91,11 @@ generation:
         res_ckpt_filename: /data03/SAM/AI_storm_emulator_CorrDiff/checkpoints_diffusion/EDMPrecondSuperResolution.0.160000.mdlus
         # Path to checkpoint file for the diffusion model
         reg_ckpt_filename: /data03/SAM/AI_storm_emulator_CorrDiff/checkpoints_regression/UNet.0.200000.mdlus
+
         # Path to checkpoint filename for the mean predictor model
         output_filename: /data03/SAM/AI_storm_emulator_CorrDiff/generate_output/corrdiff_autoregressive_output.nc
 
-    inference_mode: "all"
+    inference_mode: "regression"
     # regression , diffusion , all
     hr_mean_conditioning: true
     autoregressive:

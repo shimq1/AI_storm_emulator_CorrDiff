@@ -17,7 +17,7 @@
 hydra:
     job:
           chdir: false
-          name: 2D_PW_1m_regression # Change `my_job_name`
+          name: 2D_PW_d30m_1m_regression # Change `my_job_name`
     run:
           dir: ./output/${hydra:job.name} # Change `my_output_dir`
     searchpath:
@@ -74,10 +74,11 @@ dataset:
     invariant_variables: null
     # Names or indices of invariant channels. Optional.
 
-# # Validation dataset configuration (optional)
-# validation:
-#   data_path: /scratch/x3108a06/input_data/2D/valid/PW_pad_1m  # Override training data path
-#   # All other parameters not specified here are inherited from the dataset section
+# Validation dataset configuration (optional)
+validation:
+    type: /scratch/x3108a06/corrdiff/datasets/dataset_2D.py::Dataset_2D
+    data_path: /scratch/x3108a06/input_data/2D/valid/PW_pad_1m  # Override training data path
+    # All other parameters not specified here are inherited from the dataset section
 
 # Training parameters
 training:
