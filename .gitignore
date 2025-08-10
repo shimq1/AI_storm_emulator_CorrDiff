@@ -5,6 +5,7 @@
 **/*.pt
 **/*.pyc
 **/*.mdlus
+**/*.png
 **/output/
 **/wandb/
 **/conf/
