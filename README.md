@@ -11,5 +11,3 @@
  Around 200,000 Validation loss saturated
 
 ## Diffusion
-  <img width="1238" height="434" alt="image" src="https://github.com/user-attachments/assets/7206952e-3aa4-44ef-993e-6904254865b1" />
-Around 150,000 Validation loss saturated
