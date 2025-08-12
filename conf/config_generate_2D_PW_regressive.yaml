@@ -45,17 +45,17 @@ defaults:
 # Modify or add below parameters that should be passed as argument to the
 # user-defined dataset class.
 dataset:
-    type: /data03/SAM/AI_storm_emulator_CorrDiff/datasets/dataset_2D.py::Dataset_2D
+    type: /scratch/x3108a06/corrdiff/datasets/dataset_2D.py::Dataset_2D
     # Path to the user-defined dataset class. The user-defined dataset class is
     # automatically loaded from the path. The user-defined class "DatasetClass"
     # must be defined in the path "path/to/dataset.py".
-    data_path: /data03/SAM/input_data/2D/test/W_pad_1m
+    data_path: /scratch/x3108a06/input_data/2D/test/PW_pad_1m
     # Path to .nc data file
-    stats_path: /data03/SAM/input_data/2D/W_pad_1m/W_mean_std.json
+    stats_path: /scratch/x3108a06/input_data/2D/PW_mean_std.json
     # Path to json stats file
-    input_variables: ["W"]
+    input_variables: ["PW"]
     # Names or indices of input channels
-    output_variables: ["W"]
+    output_variables: ["PW"]
     # Names or indices of output channels
     invariant_variables: null
     # Names or indices of invariant channels. Optional.
@@ -88,14 +88,14 @@ generation:
     # List[str], time stamps in ISO 8601 format. Replace and list desired target
     # time stamps.
     io:
-        res_ckpt_filename: /data03/SAM/AI_storm_emulator_CorrDiff/checkpoints_diffusion/EDMPrecondSuperResolution.0.160000.mdlus
+        res_ckpt_filename: /scratch/x3108a06/checkpoints_diffusion/EDMPrecondSuperResolution.0.1000000.mdlus
         # Path to checkpoint file for the diffusion model
-        reg_ckpt_filename: /data03/SAM/AI_storm_emulator_CorrDiff/checkpoints_regression/UNet.0.200000.mdlus
+        reg_ckpt_filename: /scratch/x3108a06/checkpoints_regression/UNet.0.200000.mdlus
 
         # Path to checkpoint filename for the mean predictor model
-        output_filename: /data03/SAM/AI_storm_emulator_CorrDiff/generate_output/corrdiff_autoregressive_output.nc
+        output_filename: /scratch/x3108a06/generate_output/corrdiff_autoregressive_output.nc
 
-    inference_mode: "regression"
+    inference_mode: "all"
     # regression , diffusion , all
     hr_mean_conditioning: true
     autoregressive:
