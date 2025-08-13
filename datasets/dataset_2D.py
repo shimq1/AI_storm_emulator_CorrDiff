@@ -14,6 +14,7 @@ class Dataset_2D(DownscalingDataset):
         self.fnames = sorted([f for f in os.listdir(data_path) if f.endswith('.pt')])
         # 여기서 한 번만 첫 샘플 불러서 shape 정보 저장
         first_sample = torch.load(os.path.join(self.data_path, self.fnames[0]))
+        print("✅", first_sample[0].shape)
         
         n_channels = first_sample[0].shape[0]  # x의 채널 수 기준 (C, H, W)일 때
 
@@ -68,12 +69,16 @@ class Dataset_2D(DownscalingDataset):
         return self._img_shape
 
     def time(self):
-        print("✅ time")
+        # ===========setting===========
+        gap_min = 5
+        # =============================
+        print("✅ gap_min =", gap_min)
+
         base_time = datetime(2000, 1, 1, 0, 0, 0)
         times = []
         for i in range(len(self)):
             # 간격 하드코딩 되어있는듯 ?
-            t = base_time + timedelta(minutes=i*1)
+            t = base_time + timedelta(minutes=i*gap_min)
             # cftime 객체로!
             times.append(cftime.DatetimeGregorian(t.year, t.month, t.day, t.hour, t.minute, t.second))
         return times

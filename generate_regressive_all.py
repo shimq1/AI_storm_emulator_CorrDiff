@@ -53,7 +53,7 @@ from helpers.generate_helpers import (
 from helpers.train_helpers import set_patch_shape
 from datasets.dataset import register_dataset
 
-forecast_time_min = 6 #! <--- 예측 시간 (분) 최종적으로 입력을 받을 수 있게 바꿔야 할 듯
+forecast_time_min = 30 #! <--- 예측 시간 (분) 최종적으로 입력을 받을 수 있게 바꿔야 할 듯
 
 @hydra.main(version_base="1.2", config_path="conf", config_name="config_generate")
 def main(cfg: DictConfig) -> None:
